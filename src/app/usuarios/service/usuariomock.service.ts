@@ -24,6 +24,7 @@ export class UsuarioMockService implements IUsuarioService {
         );
     }
     getById(id: number): Observable<any> {
+<<<<<<< HEAD
       let aux: UsuarioDTO = null;
       this.usuarios.forEach((user) => {
         if(user.id == id) {
@@ -36,7 +37,31 @@ export class UsuarioMockService implements IUsuarioService {
             obs.complete();
         }
       );
+=======
+        let auxUser: UsuarioDTO;
+        this.usuarios.forEach((user) => {
+            if(user.id == id) auxUser = user;
+        });
+        return new Observable<UsuarioDTO>((obs) => {
+            obs.next(auxUser);
+            obs.complete();
+        });
+>>>>>>> 1e63bddee66b1bbc71571576aa702ec99e4534fe
     }
+    update(usuario: UsuarioDTO): Observable<any> {
+        let oldUser = this.usuarios
+        .filter(user => user.id == usuario.id)
+        .pop();
+
+        Object.assign(oldUser, usuario);
+
+        return new Observable<any>((obs) => {
+            obs.next(usuario);
+            obs.complete();
+        });
+    }
+
+
     insert(usuario: any): Observable<any> {
         this.usuarios.push(usuario);
         usuario.id = ++this.lastId;
