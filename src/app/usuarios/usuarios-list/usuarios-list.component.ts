@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../service/usuario.service';
 import { UsuarioDTO } from '../models/usuarioDTO.entity';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-usuarios-list',
@@ -11,8 +12,9 @@ export class UsuariosListComponent implements OnInit {
 
     loading: boolean = true;
     users: UsuarioDTO[] = [];
+    userSelected: UsuarioDTO;
 
-    constructor(private service: UsuarioService) { }
+    constructor(private service: UsuarioService, private router: Router) { }
 
     ngOnInit() {
         this.list();
@@ -30,6 +32,16 @@ export class UsuariosListComponent implements OnInit {
         );
     }
 
+    getById(id: number) {
+        this.service.getById(id).subscribe(
+            res => {
+                this.userSelected = res;
+            }, err => {
+                console.log(err)
+            }
+        );
+    }
+
     delete(id: number) {
         this.service.delete(id).subscribe(
             res => {
@@ -41,4 +53,11 @@ export class UsuariosListComponent implements OnInit {
         return false;
     }
 
+    view(id: number) {
+      this.router.navigate(["usuarios", "view", id]);
+    }
+
+    edit(id: number) {
+      this.router.navigate(["usuarios", "edit", id]);
+    }
 }

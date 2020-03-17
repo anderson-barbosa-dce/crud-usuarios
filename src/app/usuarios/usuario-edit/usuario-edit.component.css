@@ -21,7 +21,7 @@
   width: 100%;
   height: 100%;
   background-color: #F663FF;
-  border: 1px solid #F663FF;
+  border: 1px solid #D9DEE2;
   border-radius: 1000px;
   backface-visibility: hidden;
   transition: background-color .3s;
@@ -32,10 +32,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 45%;
+  width: 50%;
   height: 100%;
   background-color: #fff;
-  border: 2px solid #F663FF;
+  border: 2px solid #D9DEE2;
   border-radius: 1000px;
   backface-visibility: hidden;
   transition: transform .3s;
@@ -43,37 +43,8 @@
 
 .toggle-btn input[type=checkbox]:checked + .toggle-ui::before {
   background-color: #536DFE;
-  border: 1px solid #536DFE;
 }
 
 .toggle-btn input[type=checkbox]:checked + .toggle-ui::after {
-  border: 2px solid #536DFE;
+  transform: translateX(100%);
 }
-
-.toggle-btn input[type=checkbox]:checked + .toggle-ui::after {
-  transform: translateX(120%);
-}
-
-/*#divName {
-  width: 50%;
-  position: relative;
-  height: 50px;
-}
-
-#divName input {
-  width: 100%;
-  height: 100%;
-  padding-top: 20px;
-  border: none;
-}
-
-#divName label {
-  position: absolute;
-  bottom: 0px;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  border-bottom: 1px solid black;
-}*/
-

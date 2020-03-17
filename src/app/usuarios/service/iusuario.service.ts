@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { UsuarioDTO } from '../models/usuarioDTO.entity';
 
 export interface IUsuarioService {
     list(): Observable<any>;
