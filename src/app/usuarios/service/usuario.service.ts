@@ -12,9 +12,6 @@ export class UsuarioService implements IUsuarioService {
     getById(id: number): import("rxjs").Observable<any> {
         throw new Error("Method not implemented.");
     }
-    getUserSelected(): import("rxjs").Observable<any> {
-        throw new Error("Method not implemented.");
-    }
     insert(usuario: any): import("rxjs").Observable<any> {
         throw new Error("Method not implemented.");
     }
