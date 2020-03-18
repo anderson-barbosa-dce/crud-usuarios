@@ -1,0 +1,39 @@
+
+<div class="container mt-5 pt-2">
+    <form class="form justify-content-center" [formGroup]="formGroup" (ngSubmit)="onEdit()">
+      <img class="mx-auto d-block pr-5" style="display: block; width: 20%;" src={{imageSrc}}>
+        <div class="form-row mx-auto align-items-center flex-column">
+            <div class="form-group col-4">
+              <label><h6 class="pt-3"><strong>Name</strong></h6></label>
+                <input type="text" formControlName="name" placeholder="Enter a name" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.name.errors }" />
+                <div *ngIf="submitted && form.name.errors" class="invalid-feedback">
+                    <div *ngIf="form.name.errors.required">Name is mandatory</div>
+                </div>
+            </div>
+            <div class="form-group col-4">
+                <label><strong>Email</strong></label>
+                <input type="text" formControlName="email" placeholder="name@example.com" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
+                <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                    <div *ngIf="form.email.errors.required">Email is mandatory</div>
+                    <div *ngIf="form.email.errors.email">Must have email format</div>
+                </div>
+                <div class="pt-3">
+                  <strong>Male</strong>
+                    <label class="toggle-btn">
+                      <div *ngIf="checkBoxValue">
+                        <input type="checkbox" [(ngModel)]="checkBoxValue" [ngModelOptions]="{standalone: true}" (click)="checkCheckBoxvalue()" checked>
+                      </div>
+                      <input type="checkbox" [(ngModel)]="checkBoxValue" [ngModelOptions]="{standalone: true}" (click)="checkCheckBoxvalue()">
+                      <span class="toggle-ui"></span>
+                    </label>
+                  <strong>Female</strong>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-success mr-3" >Confirm</button>
+            <button *ngIf="!isEditing" class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+        </div>
+
+    </form>
+</div>

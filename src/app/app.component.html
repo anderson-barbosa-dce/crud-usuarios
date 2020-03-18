@@ -1,4 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container">
+  <div class="my-3 float-left">
+    <a class="btn btn-dark" onclick="openNav()"><i class="material-icons align-middle" style="color: white;">list</i>
+    </a>
+  </div>
+</div>
+<!--<span onclick="openNav()" id="openbtn" class="fa fa-bars"></span>-->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a onclick="closeNav()" [routerLink]="['/usuarios']" routerLInkActive="active"><i class="material-icons align-middle">person</i> <span class="ml-2 align-middle">Users</span></a>
+  <a onclick="closeNav()" [routerLink]="['/empresas']" routerLInkActive="active"><i class="material-icons align-middle">business</i> <span class="ml-2 align-middle">Business</span></a>
+</div>
+
+<!-- Use any element to open the sidenav -->
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" [routerLink]="['/']"  routerLInkActive="active">{{title}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,11 +20,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
+            <!--<li class="nav-item active">
                 <a class="nav-link" [routerLink]="['/usuarios']" routerLInkActive="active">Users</a>
+            </li>
+            <li class="nav-item-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong class="align-middle">Lists</strong></a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" [routerLink]="['/usuarios']" routerLInkActive="active"><i class="material-icons align-middle">person</i> <span class="ml-2 align-middle">Users</span></a>
+                <a class="dropdown-item" [routerLink]="['/usuarios']" routerLInkActive="active"><i class="material-icons align-middle">business</i> <span class="ml-2 align-middle">Business</span></a>
+              </div>
             </li>
         </ul>
     </div>
-</nav>
-
+</nav>-->
 <router-outlet></router-outlet>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { UsuarioService } from '../service/usuario.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,6 +13,8 @@ export class UsuarioCreateComponent implements OnInit {
 
     private formGroup: FormGroup;
     private submitted: boolean = false;
+    checkBoxValue: any = false;
+    private imageSrc: String = "assets/images/avatar-female.svg";
 
     constructor(private service: UsuarioService, private formBuilder: FormBuilder, private route: Router) { }
 
@@ -43,6 +45,7 @@ export class UsuarioCreateComponent implements OnInit {
             null,
             this.formGroup.controls["name"].value,
             this.formGroup.controls["email"].value,
+            this.imageSrc,
         );
 
         this.service.insert(user).subscribe(
@@ -56,6 +59,15 @@ export class UsuarioCreateComponent implements OnInit {
     onReset() {
         this.submitted = false;
         this.formGroup.reset();
+    }
+
+    checkCheckBoxvalue() {
+      if (this.checkBoxValue == false) {
+        this.imageSrc = "assets/images/avatar-male.svg";
+      }
+      else {
+        this.imageSrc = "assets/images/avatar-female.svg";
+      }
     }
 
 }
