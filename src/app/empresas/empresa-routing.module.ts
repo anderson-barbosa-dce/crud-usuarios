@@ -8,7 +8,7 @@ const routes: Routes = [
         component: EmpresaListComponent,
     },
     {
-        path: "/create",
+        path: "create",
         component: EmpresaCreateComponent
     }
 ]
