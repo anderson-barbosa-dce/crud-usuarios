@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmpresaListComponent } from './empresa-list/empresa-list.component';
 import { EmpresaService } from './service/empresa.service';
-import { EmpresamockService } from './service/empresamock.service';
+import { EmpresaMockService } from './service/empresamock.service';
 import { EmpresasRoutingModule } from './empresa-routing.module';
 import { EmpresaCreateComponent } from './empresa-create/empresa-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 
 @NgModule({
   declarations: [EmpresaListComponent, EmpresaCreateComponent],
@@ -18,8 +16,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    EmpresaService,
-    EmpresamockService
+    {
+      provide: EmpresaService,
+      useClass: EmpresaMockService
+    }
   ]
 })
 export class EmpresasModule { }

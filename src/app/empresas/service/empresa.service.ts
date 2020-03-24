@@ -6,9 +6,12 @@ import { EmpresaDTO } from '../models/empresaDTO.entity';
   providedIn: 'root'
 })
 export class EmpresaService implements IEmpresaService {
-    insert(empresa: any): import("rxjs").Observable<any> {
-        throw new Error("Method not implemented.");
-    }
+  list(): import("rxjs").Observable<any> {
+    throw new Error("Method not implemented.");
+  }
+  insert(empresa: any): import("rxjs").Observable<any> {
+      throw new Error("Method not implemented.");
+  }
 
   constructor() { }
 }

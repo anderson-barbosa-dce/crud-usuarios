@@ -8,16 +8,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class EmpresamockService implements IEmpresaService {
+export class EmpresaMockService implements IEmpresaService {
 
-    empresas: EmpresaDTO[] = [
+    business: EmpresaDTO[] = [
         new EmpresaDTO(1, "99825645000120", "GuiaDeRodas", "acessibilidade", "Para testes", "conseguir", [new UsuarioDTO(2, "Vinnicius", "vinnicius@mail.com", "assets/images/avatar-male.svg")])
     ]
 
-    lastId: number = this.empresas[this.empresas.length - 1].id;
+    lastId: number = this.business[this.business.length - 1].id;
+
+    list(): Observable<any> {
+        return new Observable<any>(
+            (obs) => {
+                obs.next(this.business);
+                obs.complete();
+            }
+        );
+    }
 
     insert(empresa: any): Observable<any> {
-        this.empresas.push(empresa);
+        this.business.push(empresa);
         empresa.id = ++this.lastId;
         return new Observable<any> (
             (obs) => {
