@@ -11,7 +11,7 @@ import { UsuarioService } from 'src/app/usuarios/service/usuario.service';
 
 export class EmpresaMockService implements IEmpresaService {
 
-    serviceUser: UsuarioService;
+    servicecompany: UsuarioService;
 
     business: EmpresaDTO[] = [
         new EmpresaDTO(1, "99.825.645/0001-20", "GuiaDeRodas", "acessibilidade", "Para testes", "conseguir", [new UsuarioDTO(2, "Vinnicius", "vinnicius@mail.com", "assets/images/avatar-male.svg")])
@@ -34,6 +34,23 @@ export class EmpresaMockService implements IEmpresaService {
         return new Observable<any> (
             (obs) => {
                 obs.next(empresa);
+                obs.complete();
+            }
+        );
+    }
+
+    delete(id: number): Observable<any> {
+        const aux: EmpresaDTO[] = []
+        this.business.forEach((company) => {
+            if(company.id != id) {
+                aux.push(company);
+            }
+        });
+        this.business = aux;
+        this.lastId -= 1;
+        return new Observable<any>(
+            (obs) => {
+                obs.next(true);
                 obs.complete();
             }
         );

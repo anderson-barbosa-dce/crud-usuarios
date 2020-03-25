@@ -4,4 +4,5 @@ import { EmpresaDTO } from '../models/empresaDTO.entity';
 export interface IEmpresaService {
     list(): Observable<any>;
     insert(empresa: any): Observable<any>;
+    delete(id: number): Observable<any>;
 }

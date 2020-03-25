@@ -30,4 +30,15 @@ export class EmpresaListComponent implements OnInit {
         }
     );
   }
+
+  delete(id: number) {
+    this.service.delete(id).subscribe(
+        res => {
+            this.list();
+        }, err => {
+            console.log(err)
+        }
+    );
+    return false;
+  }
 }
