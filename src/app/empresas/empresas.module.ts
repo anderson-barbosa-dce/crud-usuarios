@@ -6,6 +6,7 @@ import { EmpresaMockService } from './service/empresamock.service';
 import { EmpresasRoutingModule } from './empresa-routing.module';
 import { EmpresaCreateComponent } from './empresa-create/empresa-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [EmpresaListComponent, EmpresaCreateComponent],
@@ -13,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     EmpresasRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TextMaskModule
   ],
   providers: [
     {

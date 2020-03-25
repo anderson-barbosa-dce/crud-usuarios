@@ -3,6 +3,7 @@ import { IEmpresaService } from './iempresa.service';
 import { EmpresaDTO } from '../models/empresaDTO.entity';
 import { UsuarioDTO } from 'src/app/usuarios/models/usuarioDTO.entity';
 import { Observable } from 'rxjs';
+import { UsuarioService } from 'src/app/usuarios/service/usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,10 @@ import { Observable } from 'rxjs';
 
 export class EmpresaMockService implements IEmpresaService {
 
+    serviceUser: UsuarioService;
+
     business: EmpresaDTO[] = [
-        new EmpresaDTO(1, "99825645000120", "GuiaDeRodas", "acessibilidade", "Para testes", "conseguir", [new UsuarioDTO(2, "Vinnicius", "vinnicius@mail.com", "assets/images/avatar-male.svg")])
+        new EmpresaDTO(1, "99.825.645/0001-20", "GuiaDeRodas", "acessibilidade", "Para testes", "conseguir", [new UsuarioDTO(2, "Vinnicius", "vinnicius@mail.com", "assets/images/avatar-male.svg")])
     ]
 
     lastId: number = this.business[this.business.length - 1].id;
