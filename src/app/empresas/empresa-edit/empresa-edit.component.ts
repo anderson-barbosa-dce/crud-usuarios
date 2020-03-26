@@ -85,7 +85,7 @@ export class EmpresaEditComponent implements OnInit {
 
     this.service.edit(this.companySelected).subscribe(
         result => {
-            this.route.navigate(['/empresas']);
+            this.route.navigate(['/empresas/view/',  this.companySelected.id]);
         }, err => {
 
         }

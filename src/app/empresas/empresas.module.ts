@@ -11,9 +11,10 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { UsuarioService } from '../usuarios/service/usuario.service';
 import { UsuarioMockService } from '../usuarios/service/usuariomock.service';
 import { EmpresaEditComponent } from './empresa-edit/empresa-edit.component';
+import { EmpresaViewComponent } from './empresa-view/empresa-view.component';
 
 @NgModule({
-  declarations: [EmpresaListComponent, EmpresaCreateComponent, EmpresaEditComponent],
+  declarations: [EmpresaListComponent, EmpresaCreateComponent, EmpresaEditComponent, EmpresaViewComponent],
   imports: [
     CommonModule,
     EmpresasRoutingModule,
