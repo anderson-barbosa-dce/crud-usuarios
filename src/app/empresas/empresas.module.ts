@@ -10,9 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 import { UsuarioService } from '../usuarios/service/usuario.service';
 import { UsuarioMockService } from '../usuarios/service/usuariomock.service';
+import { EmpresaEditComponent } from './empresa-edit/empresa-edit.component';
 
 @NgModule({
-  declarations: [EmpresaListComponent, EmpresaCreateComponent],
+  declarations: [EmpresaListComponent, EmpresaCreateComponent, EmpresaEditComponent],
   imports: [
     CommonModule,
     EmpresasRoutingModule,
