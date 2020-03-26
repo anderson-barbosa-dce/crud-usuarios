@@ -44,7 +44,15 @@
                     <div *ngIf="form.visao.errors.required">Company Vision is mandatory</div>
                 </div>
             </div>
-        </div>
+            <div class="form-group col-4">
+                <label><strong>Allocated Employees</strong></label>
+                <ng-select [ngClass]="{'is-invalid': submitted && form.funcionarios.errors}" ngSelectMat placeholder="Employess" [items]="users" [multiple]="true" [hideSelected]="true" [clearable]="false" bindLabel="name" formControlName="funcionarios" appendTo="body" required>
+                </ng-select>
+                <div *ngIf="submitted && form.funcionarios.errors" class="invalid-feedback">
+                    <div *ngIf="form.funcionarios.errors.required">Alocate employees is mandatory</div>
+                </div>
+            </div>
+          </div>
         <div class="form-row mx-auto align-items-center flex-column">
             <div class="text-center">
                 <button class="btn btn-success mr-3">Confirm</button>
