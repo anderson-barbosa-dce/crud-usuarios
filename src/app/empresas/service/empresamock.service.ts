@@ -28,12 +28,41 @@ export class EmpresaMockService implements IEmpresaService {
         );
     }
 
+    getById(id: number): Observable<any> {
+        let aux: EmpresaDTO = null;
+        this.business.forEach((company) => {
+            if(company.id == id) {
+                aux = company;
+            }
+        });
+        return new Observable<EmpresaDTO> (
+            (obs) => {
+                obs.next(aux);
+                obs.complete();
+            }
+        );
+    }
+
     insert(empresa: any): Observable<any> {
         this.business.push(empresa);
         empresa.id = ++this.lastId;
         return new Observable<any> (
             (obs) => {
                 obs.next(empresa);
+                obs.complete();
+            }
+        );
+    }
+
+    edit(companySelected: EmpresaDTO): Observable<any> {
+        this.business.forEach((company) => {
+          if(company.id == companySelected.id) {
+              company = companySelected;
+          }
+        });
+        return new Observable<any>(
+            (obs) => {
+                obs.next(companySelected);
                 obs.complete();
             }
         );

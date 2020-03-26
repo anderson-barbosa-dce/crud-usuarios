@@ -41,4 +41,8 @@ export class EmpresaListComponent implements OnInit {
     );
     return false;
   }
+
+  edit(id: number) {
+    this.router.navigate(["empresas", "edit", id]);
+  }
 }
