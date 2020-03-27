@@ -64,7 +64,6 @@ export class UsuarioCreateComponent implements OnInit {
     }
     
     checkCheckBoxvalue() {
-        console.log(this.checkBoxValue);
         if (this.checkBoxValue === false) {
             this.imageSrc = "assets/images/avatar-female.svg";
         }
