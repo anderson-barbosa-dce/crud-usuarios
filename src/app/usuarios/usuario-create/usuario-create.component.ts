@@ -13,8 +13,8 @@ export class UsuarioCreateComponent implements OnInit {
 
     private formGroup: FormGroup;
     private submitted: boolean = false;
-    checkBoxValue: any = false;
-    private imageSrc: String = "assets/images/avatar-female.svg";
+    checkBoxValue: boolean = false;
+    private imageSrc: String = "assets/images/avatar-male.svg";
 
     constructor(private service: UsuarioService, private formBuilder: FormBuilder, private route: Router) { }
 
@@ -59,15 +59,18 @@ export class UsuarioCreateComponent implements OnInit {
     onReset() {
         this.submitted = false;
         this.formGroup.reset();
-    }
-
-    checkCheckBoxvalue() {
-      if (this.checkBoxValue == false) {
+        this.checkBoxValue = false;
         this.imageSrc = "assets/images/avatar-male.svg";
-      }
-      else {
-        this.imageSrc = "assets/images/avatar-female.svg";
-      }
+    }
+    
+    checkCheckBoxvalue() {
+        console.log(this.checkBoxValue);
+        if (this.checkBoxValue === false) {
+            this.imageSrc = "assets/images/avatar-female.svg";
+        }
+        else {
+            this.imageSrc = "assets/images/avatar-male.svg";
+        }
     }
 
 }
