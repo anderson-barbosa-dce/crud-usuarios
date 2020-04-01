@@ -1,1 +1,44 @@
-<p>empresa-list works!</p>
+<div class="container">
+
+    <div class="my-3 float-right"><a class="btn btn-primary" routerLink="/empresas/create"><i class="fa fa-plus align-middle mr-1" style="font-size: 10px;"></i><i class="fa fa-building align-middle"></i></a></div>
+  
+    <div *ngIf="loading else ListUsers">Loading...</div>
+  
+    <script>
+      $(document).ready(function () {
+        $('#dtBasicExample').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+      });
+    </script>
+  
+    <ng-template #ListUsers>
+      <table class="table table-striped" id="dtBasicExample" cellspacing="0" width="100%">
+        <thead class="thead-dark">
+            <tr>
+              <th class="text-center">ID</th>
+                <th>Name</th>
+                <th>CNPJ</th>
+                <th>Razão Social</th>
+                <th style="width: 25%" class="text-center">Actions</th>
+            </tr>
+        </thead>
+  
+        <tbody id="myTable">
+            <tr *ngFor="let company of business">
+              <td class="text-center align-middle"> {{ company.id }} </td>
+              <td class="align-middle"> {{ company.nomeFantasia }} </td>
+              <td class="align-middle"> {{ company.cnpj }} </td>
+              <td class="align-middle"> {{ company.razaoSocial }} </td>
+            <td>
+              <div class="text-center">
+                <button class="btn btn-success m-2" (click)="view(company.id)" href="#"><i class="material-icons align-middle">visibility</i></button>
+                <button class="btn btn-info m-2" (click)="edit(company.id)" href="#"><i class="material-icons align-middle">edit</i></button>
+                <button class="btn btn-danger m-2" (click)="delete(company.id)" href="#"><i class="material-icons align-middle">delete</i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </div>
+  

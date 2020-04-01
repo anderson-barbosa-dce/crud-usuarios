@@ -1,0 +1,37 @@
+<div class="container mt-5 pt-2">
+    <form class="form" [formGroup]="formGroup">
+      <img class="mx-auto d-block pr-5" style="display: block; width: 20%;" src={{imageSrc}}>
+          <div class="form-row mx-auto align-items-center pt-3">
+            <div class="form-group col-4" id="divName">
+                <label><strong>Name</strong></label>
+                <input disabled type="text" name="name" placeholder="Enter a name" formControlName="name" class="form-control"/>
+            </div>
+            <div class="form-group col-4">
+                <label><strong>CNPJ</strong></label>
+                <input disabled type="text" placeholder="00.000.000/0000-00" autocomplete="off" formControlName="cnpj" class="form-control"/>
+            </div>
+            <div class="form-group col-4">
+                <label><strong>Company Name</strong></label>
+                <input disabled type="text" placeholder="Enter your company name" formControlName="razaoSocial" class="form-control"/>
+            </div>
+            <div class="form-group col-4">
+                <label><strong>Company Mission</strong></label>
+                <input disabled type="text" placeholder="Enter your company's mission" formControlName="missao" class="form-control"/>
+            </div>
+            <div class="form-group col-4">
+                <label><strong>Company Vision</strong></label>
+                <input disabled type="text" placeholder="Enter your company's vision" formControlName="visao" class="form-control"/>
+            </div>
+            <div class="form-group col-4">
+                <label><strong>Allocated Employees</strong></label>
+                <ng-select ngSelectMat placeholder="Employess" [items]="users" [multiple]="true" [hideSelected]="true" [isOpen]="false" [searchable]="false" [readonly]="true" [clearable]="false" bindLabel="name" formControlName="funcionarios" appendTo="body">
+                </ng-select>
+            </div>
+          </div>
+        <div class="form-row mx-auto align-items-center flex-column">
+            <div class="text-center">
+                <button class="btn btn-success mr-3" [routerLink]="['/empresas']" routerLInkActive="active">Back</button>
+            </div>
+        </div>
+    </form>
+</div>

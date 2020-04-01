@@ -23,10 +23,10 @@ export class UsuarioEditComponent implements OnInit {
       this.getUserSelected();
       this.generateForm();
       if(this.imageSrc === "assets/images/avatar-male.svg") {
-        this.checkBoxValue = true;
+        this.checkBoxValue = false;
       }
       else {
-        this.checkBoxValue = false;
+        this.checkBoxValue = true;
       }
   }
 
@@ -96,14 +96,16 @@ export class UsuarioEditComponent implements OnInit {
   onReset() {
       this.submitted = false;
       this.formGroup.reset();
+      this.checkBoxValue = false;
+      this.imageSrc = "assets/images/avatar-male.svg";
   }
 
-    checkCheckBoxvalue() {
-      if (this.checkBoxValue == false) {
-        this.imageSrc = "assets/images/avatar-male.svg";
-      }
-      else {
+  checkCheckBoxvalue() {
+    if (this.checkBoxValue === false) {
         this.imageSrc = "assets/images/avatar-female.svg";
-      }
     }
+    else {
+        this.imageSrc = "assets/images/avatar-male.svg";
+    }
+  }
 }
